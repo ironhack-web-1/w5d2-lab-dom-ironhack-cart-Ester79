@@ -1,6 +1,7 @@
 // ITERATION 1
 
 function updateSubtotal(product) {
+  alert('Calculating subtotal, yey!');
   console.log('Calculating subtotal, yey!');
 
   //... your code goes here

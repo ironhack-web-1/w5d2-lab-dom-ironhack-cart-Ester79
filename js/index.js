@@ -10,6 +10,7 @@ function updateSubtotal(product) {
   console.log(price);
   console.log(quantity);
   console.log(subtotal);
+  return subtotal;
 
 
   //... your code goes here
@@ -38,7 +39,7 @@ function calculateAll() {
   productes.forEach(product => {
     totalPrice += updateSubtotal(product)
   })
-  return total.innerHTML = totalPrice;
+  total.innerHTML = totalPrice;
 
   
   //... your code goes here

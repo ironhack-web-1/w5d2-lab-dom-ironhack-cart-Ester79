@@ -57,6 +57,36 @@ function removeProduct(event) {
 // ITERATION 5
 
 function createProduct() {
+ 
+  console.log("Entra a método crear nuevo producto");
+  const newName = document.querySelector('.create-product input[type="text"]').value;
+  const newPrice = document.querySelector('.create-product input[type="number"]').value;
+  const parent = document.getElementsByTagName('tbody')[0];
+  const newNameProductRow = document.createElement("tr");
+  newNameProductRow.className = 'product';
+
+  const rowTemplate = `<td class="name">
+  <span>${newName}</span>
+  </td>
+  <td class="price">$<span>${newPrice}</span></td>
+  <td class="quantity">
+  <input type="number" value="0" min="0" placeholder="Quantity" />
+  </td>
+  <td class="subtotal">$<span>0</span></td>
+  <td class="action">
+  <button class="btn btn-remove">Remove</button>
+  </td>`
+
+  parent.appendChild(newNameProductRow);
+  newNameProductRow.innerHTML = rowTemplate;
+  const removeEl = document.getElementsByClassName('btn-remove');
+  for(let i=0; i<removeEl.length; i++){
+    removeEl[i].addEventListener('click', removeProduct);
+  }
+  
+  document.querySelector('.create-product input[type="text"]').value = "";
+  document.querySelector('.create-product input[type="number"]').value = 0;
+
   //... your code goes here
 }
 
@@ -69,6 +99,9 @@ window.addEventListener('load', () => {
   for(let i=0; i<removeEl.length; i++){
     removeEl[i].addEventListener('click', removeProduct);
   }
+
+  const addSingleProduct = document.getElementById('create');
+  addSingleProduct.addEventListener('click', createProduct);
 
 
   //... your code goes here
